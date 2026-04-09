@@ -13,7 +13,7 @@ const io = new Server(server, {
     credentials: true,
     allowedHeaders: ["Content-Type"]
   },
-  transports: ['polling', 'websocket']
+  transports: ['websocket','polling']
 });
 
 // ✅ Health check endpoint (Render ke liye)
