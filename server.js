@@ -8,12 +8,17 @@ const server = http.createServer(app);
 // ✅ CORS properly configured for Vercel frontend
 const io = new Server(server, {
   cors: {
-    origin: "https://frontend-air-gesture-share.vercel.app",
+    origin: [
+      "https://frontend-air-gesture-share.vercel.app",
+      "http://localhost:8081",
+      "http://localhost:3000",
+      "http://192.168.x.x:8081"
+    ],
     methods: ["GET", "POST"],
     credentials: true,
     allowedHeaders: ["Content-Type"]
   },
-  transports: ['websocket','polling']
+  transports: ['polling', 'websocket']
 });
 
 // ✅ Health check endpoint (Render ke liye)
